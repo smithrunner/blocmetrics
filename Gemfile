@@ -29,7 +29,7 @@ group :development, :test do
  gem 'rspec-rails'
  gem 'shoulda'
  gem 'faker'
- gem 'factory_girl_rails'
+ gem 'factory_bot'
  gem 'pry-rails'
 end
 
