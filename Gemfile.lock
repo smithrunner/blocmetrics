@@ -211,11 +211,7 @@ DEPENDENCIES
   byebug
   coffee-rails (~> 4.1.0)
   devise
-<<<<<<< HEAD
-  factory_girl_rails
-=======
   factory_bot
->>>>>>> sign-in
   faker
   figaro
   jquery-rails
