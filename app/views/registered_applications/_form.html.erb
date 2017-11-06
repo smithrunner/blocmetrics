@@ -1,0 +1,16 @@
+<%= form_for [registered_application] do |form| %>
+  <%= form_group_tag(registered_application.errors[:name]) do %>
+    <%= form.label :name %>
+    <%= form.text_field :name, class: "form-control", placehodler: "Enter Application Name" %>
+  <% end %>
+    
+  <%= form_group_tag(registered_application.errors[:URL]) do %>
+    <%= form.label :URL %>
+    <%= form.text_field :URL, class: "form-control", placehodler: "Enter Application URL" %>
+  <% end %>
+  
+  <div class="form-group">
+    <%= form.submit "Register", class: "btn btn-success" %>
+  </div>  
+    
+<% end %>
