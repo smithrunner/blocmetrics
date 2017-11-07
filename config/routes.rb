@@ -4,5 +4,6 @@ Rails.application.routes.draw do
   devise_for :users
   
   resources :registered_applications
+  resources :events
   root 'welcome#index'
 end
