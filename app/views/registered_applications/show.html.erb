@@ -18,16 +18,17 @@
   </div>
 </div>
 
-<% @events.each do |event, value| %>
-  <div class="row">
-    <div class="col-md-6 text-center">
-      <h3><%= event %></h3>
-    </div>
-    <div class="col-md-6 text-center">
-      <h3>Count: <%= value.count %> </h3>
-    </div>
+<div class="row">
+  <div class="col-lg-12 text-center">
+    <%= pie_chart @registered_application.events.group(:event_name).count %>
   </div>
-<% end %>
+</div>
+
+<div class="row">
+  <div class="col-lg-12 text-center">
+    <%= line_chart @registered_application.events.group_by_day(:created_at).count %>
+  </div>
+</div>
 
 <div class="row">
   <div class="col-lg-12 text-center">
