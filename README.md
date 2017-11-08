@@ -1,24 +1,27 @@
+TO ADD BLOCMETRICS TO YOUR SITE WITH JAVASCRIPT:
 
-     ,-----.,--.                  ,--. ,---.   ,--.,------.  ,------.
-    '  .--./|  | ,---. ,--.,--. ,-|  || o   \  |  ||  .-.  \ |  .---'
-    |  |    |  || .-. ||  ||  |' .-. |`..'  |  |  ||  |  \  :|  `--, 
-    '  '--'\|  |' '-' ''  ''  '\ `-' | .'  /   |  ||  '--'  /|  `---.
-     `-----'`--' `---'  `----'  `---'  `--'    `--'`-------' `------'
-    ----------------------------------------------------------------- 
+In your application.js file add:
 
+    var blocmetrics = {};
+    
+    blocmetrics.report = function(eventName){
+      var event = {event: {name: eventName}};
+    
+      var request = new XMLHttpRequest();
+    
+      request.open("POST", "https://blocmetrics-smithrunner.c9users.io/api/events", true);
+    
+      request.setRequestHeader('Content-Type', 'application/json');
+    
+      request.send(JSON.stringify(event));
+    };
 
-Welcome to your Rails project on Cloud9 IDE!
+Then in your application, the report function can be called to track an event.
 
-To get started, just do the following:
+Examples:
 
-1. Run the project with the "Run Project" button in the menu bar on top of the IDE.
-2. Preview your new app by clicking on the URL that appears in the Run panel below (https://HOSTNAME/).
+<a href="/about" onclick="blocmetrics.report('about link clicked')">
 
-Happy coding!
-The Cloud9 IDE team
+or 
 
-
-## Support & Documentation
-
-Visit http://docs.c9.io for support, or to learn more about using Cloud9 IDE. 
-To watch some training videos, visit http://www.youtube.com/user/c9ide
+<script>blocmetrics.report('about page loaded');</script>
